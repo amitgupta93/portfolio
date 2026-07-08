@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Send, Mail, MapPin, Phone, Code, Linkedin, Globe } from "lucide-react"
+import { Send, Mail, MapPin, Phone, Code, LinkedIn, Globe } from "lucide-react"
 
 export function Contact() {
   const [name, setName] = useState("")
@@ -173,7 +173,7 @@ export function Contact() {
               <span className="absolute -top-10 scale-0 group-hover/icon:scale-100 transition-transform bg-black/80 text-[10px] px-2 py-1 rounded border border-white/10 uppercase font-black">GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/amit-gupta-9b8b1b241" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-black transition-all group/icon relative">
-              <Linkedin size={20} />
+              <LinkedIn size={20} />
               <span className="absolute -top-10 scale-0 group-hover/icon:scale-100 transition-transform bg-black/80 text-[10px] px-2 py-1 rounded border border-white/10 uppercase font-black">LinkedIn</span>
             </a>
           </div>
