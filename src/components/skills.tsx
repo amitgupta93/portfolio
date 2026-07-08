@@ -4,14 +4,14 @@ import { motion, useMotionValue, useTransform } from "framer-motion"
 import { Cpu, Code, Database, Layout, Globe, Zap, Box, Layers } from "lucide-react"
 
 const skills = [
-  { name: "React", icon: <Layout />, level: 90, color: "#61DAFB" },
-  { name: "Next.js", icon: <Globe />, level: 85, color: "#ffffff" },
-  { name: "TypeScript", icon: <Code />, level: 88, color: "#3178C6" },
-  { name: "Three.js", icon: <Box />, level: 75, color: "#00f3ff" },
-  { name: "Node.js", icon: <Database />, level: 82, color: "#339933" },
-  { name: "Python", icon: <Cpu />, level: 80, color: "#3776AB" },
-  { name: "AI / ML", icon: <Zap />, level: 70, color: "#ff00ff" },
-  { name: "Tailwind", icon: <Layers />, level: 95, color: "#38B2AC" },
+  { name: "Python", icon: <Cpu />, level: 85, color: "#3776AB" },
+  { name: "HTML", icon: <Code />, level: 90, color: "#E34F26" },
+  { name: "CSS", icon: <Layout />, level: 85, color: "#1572B6" },
+  { name: "JavaScript", icon: <Zap />, level: 80, color: "#F7DF1E" },
+  { name: "Machine Learning", icon: <Box />, level: 75, color: "#ff00ff" },
+  { name: "Deep Learning", icon: <Layers />, level: 70, color: "#00f3ff" },
+  { name: "NLP", icon: <Globe />, level: 65, color: "#00ff88" },
+  { name: "Computer Vision", icon: <Database />, level: 75, color: "#ff6600" },
 ]
 
 function SkillCard({ skill, index }: { skill: typeof skills[0], index: number }) {

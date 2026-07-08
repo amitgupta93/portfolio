@@ -2,47 +2,36 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Send, Mail, MapPin, Phone, Code, User, Globe } from "lucide-react"
+import { Send, Mail, MapPin, Phone, Code, Linkedin, Globe } from "lucide-react"
 
 export function Contact() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [subject, setSubject] = useState("")
+  const [message, setMessage] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // NOTE: Amit Gupta, for REAL email notifications:
-    // 1. Install EmailJS: npm install @emailjs/browser
-    // 2. Uncomment the code block below.
-    // 3. Replace the placeholder IDs with your real ones from https://www.emailjs.com/
-
-    /*
-    const emailjs = (await import('@emailjs/browser')).default;
-    try {
-      await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // e.g. service_gmail
-        'YOUR_TEMPLATE_ID', // e.g. template_abc123
-        e.currentTarget,
-        'YOUR_PUBLIC_KEY' // from your Account page
-      );
-      setIsSuccess(true);
-    } catch (err) {
-      console.error("Email failed:", err);
-      alert("Failed to send message. Please check EmailJS setup.");
-    } finally {
-      setIsSubmitting(false);
-    }
-    return;
-    */
-
-    // Simulated behavior for now
+    // Create mailto link to open user's default email client
+    const mailtoLink = `mailto:amitgupta93408@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nFrom: ${email}\n\n${message}`)}`
+    window.location.href = mailtoLink
+    
+    // Simulate success
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSuccess(true)
-      console.log("Contact logic updated for Amit Gupta - ready for EmailJS integration.")
-      setTimeout(() => setIsSuccess(false), 5000)
-    }, 2000)
+      setTimeout(() => {
+        setIsSuccess(false)
+        setName("")
+        setEmail("")
+        setSubject("")
+        setMessage("")
+      }, 3000)
+    }, 500)
   }
 
   return (
@@ -71,6 +60,8 @@ export function Contact() {
                 required 
                 type="text" 
                 placeholder="John Doe" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-6 py-4 glass rounded-2xl outline-none border border-white/5 focus:border-neon-pink/50 focus:bg-white/5 transition-all"
               />
             </div>
@@ -80,6 +71,8 @@ export function Contact() {
                 required 
                 type="email" 
                 placeholder="john@example.com" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-6 py-4 glass rounded-2xl outline-none border border-white/5 focus:border-neon-pink/50 focus:bg-white/5 transition-all"
               />
             </div>
@@ -91,6 +84,8 @@ export function Contact() {
               required 
               type="text" 
               placeholder="Project Inquiry" 
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               className="w-full px-6 py-4 glass rounded-2xl outline-none border border-white/5 focus:border-neon-pink/50 focus:bg-white/5 transition-all"
             />
           </div>
@@ -101,6 +96,8 @@ export function Contact() {
               required 
               rows={5} 
               placeholder="Tell me about your project..." 
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full px-6 py-4 glass rounded-2xl outline-none border border-white/5 focus:border-neon-pink/50 focus:bg-white/5 transition-all resize-none"
             />
           </div>
@@ -117,7 +114,7 @@ export function Contact() {
             {isSubmitting ? (
               <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
             ) : isSuccess ? (
-              "Message Sent!"
+              "Opening Email Client!"
             ) : (
               <>Send Message <Send size={20} /></>
             )}
@@ -125,7 +122,7 @@ export function Contact() {
         </form>
       </motion.div>
 
-      {/* Right: Contact Info & 3D Object */}
+      {/* Right: Contact Info */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -139,15 +136,15 @@ export function Contact() {
           <div className="space-y-8 relative z-10">
             <h3 className="text-3xl font-black uppercase tracking-tighter mb-8">Professional <br /><span className="text-neon-pink">Contact</span></h3>
             
-            <div className="flex items-center gap-6 group/item">
+            <a href="mailto:amitgupta93408@gmail.com" className="flex items-center gap-6 group/item">
               <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-neon-pink group-hover/item:bg-neon-pink group-hover/item:text-white transition-all duration-300">
                 <Mail size={24} />
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Direct Email</p>
-                <p className="text-lg font-bold">amitgupta.work@gmail.com</p>
+                <p className="text-lg font-bold">amitgupta93408@gmail.com</p>
               </div>
-            </div>
+            </a>
 
             <div className="flex items-center gap-6 group/item">
               <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-neon-blue group-hover/item:bg-neon-blue group-hover/item:text-white transition-all duration-300">
@@ -171,17 +168,13 @@ export function Contact() {
           </div>
 
           <div className="flex items-center justify-center gap-8 relative z-10 pt-12">
-            <a href="https://github.com/amitgupta-dev" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-neon-blue hover:text-black transition-all group/icon relative">
+            <a href="https://github.com/amitgupta93" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-neon-blue hover:text-black transition-all group/icon relative">
               <Code size={20} />
               <span className="absolute -top-10 scale-0 group-hover/icon:scale-100 transition-transform bg-black/80 text-[10px] px-2 py-1 rounded border border-white/10 uppercase font-black">GitHub</span>
             </a>
-            <a href="https://linkedin.com/in/amitgupta-dev" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-neon-pink hover:text-black transition-all group/icon relative">
-              <User size={20} />
+            <a href="https://www.linkedin.com/in/amit-gupta-9b8b1b241" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-black transition-all group/icon relative">
+              <Linkedin size={20} />
               <span className="absolute -top-10 scale-0 group-hover/icon:scale-100 transition-transform bg-black/80 text-[10px] px-2 py-1 rounded border border-white/10 uppercase font-black">LinkedIn</span>
-            </a>
-            <a href="https://amitgupta.me" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-neon-green hover:text-black transition-all group/icon relative">
-              <Globe size={20} />
-              <span className="absolute -top-10 scale-0 group-hover/icon:scale-100 transition-transform bg-black/80 text-[10px] px-2 py-1 rounded border border-white/10 uppercase font-black">Portfolio</span>
             </a>
           </div>
 

@@ -3,11 +3,35 @@
 import { motion } from "framer-motion"
 import { User, Code, GraduationCap, Trophy, Cpu, BookOpen, Star, Mail, Globe } from "lucide-react"
 
-const highlights = [
-  { icon: <Code size={24} />, title: "B.Tech CSE (AI & DS)", desc: "3rd Year Student at AKS University, Satna." },
-  { icon: <GraduationCap size={24} />, title: "Academic Excellence", desc: "Consistently top of class in AI and Data Science subjects." },
-  { icon: <Trophy size={24} />, title: "Hackathon Winner", desc: "Secured 1st place in regional technical innovation summit." },
-  { icon: <Cpu size={24} />, title: "AI/ML Fresher", desc: "Ready to contribute with 4 real-world projects." },
+const education = [
+  { 
+    icon: <BookOpen size={24} />, 
+    title: "B.Tech CSE (AI & DS)", 
+    desc: "AKS University, Satna", 
+    marks: "8.5 CGPA",
+    year: "Pursuing"
+  },
+  { 
+    icon: <GraduationCap size={24} />, 
+    title: "12th (Higher Secondary)", 
+    desc: "Bonanza Convent Hr Sec School", 
+    marks: "70%",
+    year: "2022"
+  },
+  { 
+    icon: <Trophy size={24} />, 
+    title: "10th (Secondary)", 
+    desc: "Bonanza Convent Hr Sec School", 
+    marks: "75%",
+    year: "2020"
+  },
+  { 
+    icon: <Cpu size={24} />, 
+    title: "AI/ML Enthusiast", 
+    desc: "4+ Real-World AI Projects", 
+    marks: "Hands-On",
+    year: "Current"
+  },
 ]
 
 export function About() {
@@ -30,6 +54,7 @@ export function About() {
         </div>
 
         <div className="space-y-8">
+          {/* B.Tech Card */}
           <div className="p-8 glass rounded-[2.5rem] border border-white/10 hover:border-neon-pink/30 transition-all group relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:rotate-12 transition-transform">
               <GraduationCap size={120} />
@@ -53,18 +78,19 @@ export function About() {
                 </div>
                 <div className="flex items-center gap-4 text-white/50">
                   <Trophy size={18} className="text-neon-blue" />
-                  <span className="text-sm font-bold">3rd Year Student (Fresher)</span>
+                  <span className="text-sm font-bold">Overall CGPA: 8.5</span>
                 </div>
               </div>
 
               <p className="text-lg text-white/70 leading-relaxed max-w-lg">
-                I am focused on building <span className="text-white font-bold underline decoration-neon-pink underline-offset-4">intelligent systems</span> that solve real-world problems. My academic path is driven by a passion for <span className="text-neon-pink font-bold">AI/ML</span> and <span className="text-neon-blue font-bold">Full-Stack Development</span>.
+                I am focused on building <span className="text-white font-bold underline decoration-neon-pink underline-offset-4">intelligent systems</span> that solve real-world problems. My academic path is driven by a passion for <span className="text-neon-pink font-bold">AI/ML</span> and <span className="text-neon-blue font-bold">Computer Science</span>.
               </p>
             </div>
           </div>
 
+          {/* Education Timeline */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map((item, i) => (
+            {education.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -76,9 +102,10 @@ export function About() {
                 <div className="text-neon-pink group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-sm font-black uppercase tracking-widest">{item.title}</h3>
                   <p className="text-[10px] text-white/40 font-bold leading-snug">{item.desc}</p>
+                  <p className="text-xs text-neon-blue font-bold mt-1">{item.marks} • {item.year}</p>
                 </div>
               </motion.div>
             ))}
@@ -86,7 +113,7 @@ export function About() {
         </div>
       </motion.div>
 
-      {/* Right: Premium Achievement Card */}
+      {/* Right: Premium Profile Card */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -111,7 +138,7 @@ export function About() {
             <div className="space-y-8">
               <div className="space-y-3">
                 <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-white/40">
-                  <span>Development Skills</span>
+                  <span>AI/ML Skills</span>
                   <span className="text-neon-blue">Advanced</span>
                 </div>
                 <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden p-[2px]">
@@ -129,13 +156,13 @@ export function About() {
 
               <div className="space-y-3">
                 <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-white/40">
-                  <span>AI/ML Implementation</span>
+                  <span>Computer Vision</span>
                   <span className="text-neon-pink">Expertise</span>
                 </div>
                 <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden p-[2px]">
                   <motion.div 
                     initial={{ width: 0 }}
-                    whileInView={{ width: "75%" }}
+                    whileInView={{ width: "80%" }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5, ease: "circOut", delay: 0.2 }}
                     className="h-full bg-gradient-to-r from-neon-blue to-neon-pink rounded-full relative"
@@ -147,14 +174,15 @@ export function About() {
 
               <div className="pt-6 flex flex-wrap gap-3">
                 <div className="px-4 py-2 glass rounded-xl text-[10px] font-black text-white/60 tracking-widest hover:text-white hover:border-neon-pink/50 transition-all cursor-default">PYTHON</div>
-                <div className="px-4 py-2 glass rounded-xl text-[10px] font-black text-white/60 tracking-widest hover:text-white hover:border-neon-blue/50 transition-all cursor-default">OPENCV</div>
-                <div className="px-4 py-2 glass rounded-xl text-[10px] font-black text-white/60 tracking-widest hover:text-white hover:border-neon-green/50 transition-all cursor-default">REACT</div>
+                <div className="px-4 py-2 glass rounded-xl text-[10px] font-black text-white/60 tracking-widest hover:text-white hover:border-neon-blue/50 transition-all cursor-default">ML/DL</div>
+                <div className="px-4 py-2 glass rounded-xl text-[10px] font-black text-white/60 tracking-widest hover:text-white hover:border-neon-green/50 transition-all cursor-default">OPENCV</div>
+                <div className="px-4 py-2 glass rounded-xl text-[10px] font-black text-white/60 tracking-widest hover:text-white hover:border-yellow-400/50 transition-all cursor-default">NLP</div>
               </div>
 
               <div className="pt-4 border-t border-white/5">
                 <div className="flex items-center gap-3 text-white/40 group-hover:text-white transition-colors">
                   <Mail size={16} className="text-neon-pink" />
-                  <span className="text-xs font-bold font-mono">amitgupta.work@gmail.com</span>
+                  <span className="text-xs font-bold font-mono">amitgupta93408@gmail.com</span>
                 </div>
               </div>
             </div>

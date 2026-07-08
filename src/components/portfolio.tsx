@@ -8,8 +8,8 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
+import { Resume } from "@/components/resume"
 import { Contact } from "@/components/contact"
-import { MusicToggle } from "@/components/music-toggle"
 
 export function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -78,6 +78,12 @@ export function Portfolio() {
           </div>
         </section>
 
+        <section id="resume" className="min-h-screen flex items-center px-6 md:px-20 lg:px-40 pointer-events-none">
+          <div className="w-full pointer-events-auto">
+            <Resume />
+          </div>
+        </section>
+
         <section id="contact" className="min-h-screen flex items-center px-6 md:px-20 lg:px-40 pointer-events-none">
           <div className="w-full pointer-events-auto">
             <Contact />
@@ -85,7 +91,6 @@ export function Portfolio() {
         </section>
 
         {/* Floating UI Elements */}
-        <MusicToggle autoPlay={isReady} />
         <CustomCursor />
       </div>
     </motion.div>

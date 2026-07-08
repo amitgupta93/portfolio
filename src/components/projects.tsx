@@ -7,47 +7,57 @@ import { ExternalLink, Code, X, ArrowUpRight } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "Facial Attendance System",
+    title: "Face Attendance System",
     category: "AI",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
-    desc: "A real-time facial recognition attendance system using OpenCV and Deep Learning. Features secure authentication, automated logging, and a high-performance recognition engine.",
-    tech: ["Python", "OpenCV", "TensorFlow", "Flask"],
-    github: "https://github.com/amitgupta-dev/facial-attendance",
-    live: "https://facial-attendance.demo"
+    desc: "Real-time AI system using face recognition for automated attendance tracking with OpenCV and Python.",
+    tech: ["Python", "OpenCV", "Face Recognition", "SQLite"],
+    github: "https://github.com/amitgupta93/face-attendence-system.git",
+    live: "#"
   },
   {
     id: 2,
     title: "Life Hub",
     category: "Web",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
-    desc: "A comprehensive lifestyle management platform with integrated productivity tools, health tracking, and personal finance management.",
-    tech: ["Next.js", "Firebase", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/amitgupta-dev/life-hub",
-    live: "https://life-hub.demo"
+    desc: "All-in-one productivity hub application for managing daily life activities.",
+    tech: ["React", "Node.js", "Full Stack"],
+    github: "https://github.com/amitgupta93/life-hub.git",
+    live: "#"
   },
   {
     id: 3,
-    title: "AI Disease Predictor",
+    title: "Emotion Detection",
     category: "AI",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
-    desc: "Advanced healthcare solution using machine learning to predict potential diseases based on patient symptoms with high precision.",
-    tech: ["Python", "Scikit-Learn", "FastAPI", "React"],
-    github: "https://github.com/amitgupta-dev/disease-predictor",
-    live: "https://disease-predictor.demo"
+    image: "https://images.unsplash.com/photo-1516302752625-fcc389eaed97?q=80&w=1000&auto=format&fit=crop",
+    desc: "Deep learning system that analyzes facial expressions and detects human emotions in real-time.",
+    tech: ["Python", "TensorFlow", "Keras", "Computer Vision"],
+    github: "https://github.com/amitgupta93/emotion-detection.git",
+    live: "#"
   },
   {
     id: 4,
-    title: "Real-World ML Analytics",
-    category: "Web",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-    desc: "Data-driven analytics platform leveraging real-world datasets for predictive business insights and visualization.",
-    tech: ["Python", "Pandas", "AWS SageMaker", "D3.js"],
-    github: "https://github.com/amitgupta-dev/ml-analytics",
-    live: "https://ml-analytics.demo"
+    title: "YouTube Notes Generator",
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
+    desc: "AI-powered tool that generates intelligent notes from YouTube videos.",
+    tech: ["Python", "AI", "YouTube API"],
+    github: "https://github.com/amitgupta93/youtube_notes_generator.git",
+    live: "#"
+  },
+  {
+    id: 5,
+    title: "AI Resume Checker",
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000&auto=format&fit=crop",
+    desc: "AI-powered resume checker that analyzes and provides feedback on resumes.",
+    tech: ["Python", "AI", "NLP", "Flask"],
+    github: "https://github.com/amitgupta93/Ai-resume_checker.git",
+    live: "https://ai-resume-checker-afin.onrender.com/"
   }
 ]
 
-const categories = ["All", "Web", "AI", "Mobile"]
+const categories = ["All", "Web", "AI"]
 
 export function Projects() {
   const [filter, setFilter] = useState("All")
